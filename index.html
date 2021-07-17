@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div{
+      width: 500px;
+      height: 200px;
+      background-color: purple;
+      position: relative;
+    }
+  
+    p:first-child{
+      position: absolute;
+      width: 30%;
+      height: 30%;
+      background-color: yellow;
+    }
+    p:last-child{
+      position: absolute;
+      width: 30%;
+      height: 30%;
+      background-color: red;
+      top: 70px;
+    }
+  
+  </style>
+</head>
+<body>
+ 
+
+<div>
+  <p data-1>bbbb</p>
+  <p data-2>fdfd</p>
+</div>
+<script>
+   
+ document.querySelectorAll('p').forEach(el => el.addEventListener('pointerdown', e=>{
+  
+    const clientX = e.clientX - el.getBoundingClientRect().left
+    const clientY = e.clientY - el.getBoundingClientRect().top
+
+    function moveAt(e){
+      el.style.left = `${e.pageX - clientX}px`
+      el.style.top = `${e.pageY - clientY}px`
+      
+
+    }
+    function close(){
+      document.removeEventListener('pointermove', moveAt)
+      document.removeEventListener('pointerup', close)
+    }
+    document.addEventListener('pointermove', moveAt)
+    document.addEventListener('pointerup', close)
+   
+ }))
+
+
+</script>
+
+</body>
+</html>
