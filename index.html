@@ -62,11 +62,17 @@
 
     }
     function close(){
-      document.removeEventListener('pointermove', moveAt)
-      document.removeEventListener('pointerup', close)
+      el.removeEventListener('pointermove', moveAt)
+      el.removeEventListener('pointerup', close)
     }
-    document.addEventListener('pointermove', moveAt)
-    document.addEventListener('pointerup', close)
+    if(e.isPrimary){
+
+      el.addEventListener('pointermove', moveAt)
+    } else{
+      el.addEventListener('pointermove', moveAt)
+
+    }
+    el.addEventListener('pointerup', close)
    
  }))
 
