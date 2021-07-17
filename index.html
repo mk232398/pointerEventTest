@@ -51,6 +51,7 @@
    
  document.querySelectorAll('p').forEach(el => el.addEventListener('pointerdown', e=>{
   
+  el.setPointerCapture(e.pointerId) 
     const clientX = e.clientX - el.getBoundingClientRect().left
     const clientY = e.clientY - el.getBoundingClientRect().top
 
