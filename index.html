@@ -49,7 +49,7 @@
 </div>
 <script>
    
- document.querySelectorAll('p').forEach(el => el.addEventListener('mousedown', e=>{
+ document.querySelectorAll('p').forEach(el => el.addEventListener('pointerdown', e=>{
   
     const clientX = e.clientX - el.getBoundingClientRect().left
     const clientY = e.clientY - el.getBoundingClientRect().top
@@ -61,11 +61,11 @@
 
     }
     function close(){
-      document.removeEventListener('mousemove', moveAt)
-      document.removeEventListener('mouseup', close)
+      document.removeEventListener('pointermove', moveAt)
+      document.removeEventListener('pointerup', close)
     }
-    document.addEventListener('mousemove', moveAt)
-    document.addEventListener('mouseup', close)
+    document.addEventListener('pointermove', moveAt)
+    document.addEventListener('pointerup', close)
    
  }))
 
